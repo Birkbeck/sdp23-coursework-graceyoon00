@@ -50,6 +50,8 @@ public abstract class Instruction {
 
 	// TODO: What does abstract in the declaration below mean?
 	//       (Write a short explanation.)
+	//       What does @Override mean?
+	
 	@Override
 	public abstract String toString();
 
