@@ -23,7 +23,6 @@ public final class Labels {
 		Objects.requireNonNull(label);
 		// TODO: Add a check that there are no label duplicates.
 		labels.put(label, address);
-
 	}
 
 	/**
