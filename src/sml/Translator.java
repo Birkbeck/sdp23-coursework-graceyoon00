@@ -66,7 +66,7 @@ public final class Translator {
             return null;
 
         String opcode = scan();
-        switch (opcode) {
+/*        switch (opcode) {
             case AddInstruction.OP_CODE -> {
                 String r = scan();
                 String s = scan();
@@ -100,7 +100,7 @@ public final class Translator {
                 String r = scan();
                 String s = scan();
                 return new JnzInstruction(label, Register.valueOf(r), s);
-            }
+            }*/
 
             // TODO: Then, replace the switch by using the Reflection API
 
