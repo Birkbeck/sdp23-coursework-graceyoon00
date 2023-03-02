@@ -4,8 +4,6 @@ import sml.Instruction;
 import sml.Machine;
 import sml.RegisterName;
 
-import java.util.Objects;
-
 // TODO: write a JavaDoc for the class
 
 /**

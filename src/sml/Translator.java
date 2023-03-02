@@ -82,9 +82,24 @@ public final class Translator {
                 String s = scan();
                 return new MulInstruction(label, Register.valueOf(r), Register.valueOf(s));
             }
+            case DivInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new DivInstruction(label, Register.valueOf(r), Register.valueOf(s));
+            }
             case OutInstruction.OP_CODE -> {
                 String r = scan();
                 return new OutInstruction(label, Register.valueOf(r));
+            }
+            case MovInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new MovInstruction(label, Register.valueOf(r), Integer.parseInt(s));
+            }
+            case JnzInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new JnzInstruction(label, Register.valueOf(r), s);
             }
 
             // TODO: Then, replace the switch by using the Reflection API

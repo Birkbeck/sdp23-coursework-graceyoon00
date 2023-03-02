@@ -34,4 +34,24 @@ public class AddInstruction extends Instruction {
 	public String toString() {
 		return getLabelString() + getOpcode() + " " + result + " " + source;
 	}
+
+	//implement equals
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		AddInstruction that = (AddInstruction) o;
+
+		if (result != that.result) return false;
+		return source == that.source;
+	}
+
+	//implment hashCode
+	@Override
+	public int hashCode() {
+		int result1 = result != null ? result.hashCode() : 0;
+		result1 = 31 * result1 + (source != null ? source.hashCode() : 0);
+		return result1;
+	}
 }
