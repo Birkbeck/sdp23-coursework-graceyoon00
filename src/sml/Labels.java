@@ -22,6 +22,11 @@ public final class Labels {
 	public void addLabel(String label, int address) {
 		Objects.requireNonNull(label);
 		// TODO: Add a check that there are no label duplicates.
+		for (String key : labels.keySet()) {
+			if (key.equals(label)) {
+				throw new IllegalArgumentException("Duplicate label");
+			}
+		}
 		labels.put(label, address);
 	}
 
@@ -35,6 +40,11 @@ public final class Labels {
 		// TODO: Where can NullPointerException be thrown here?
 		//       (Write an explanation.)
 		//       Add code to deal with non-existent labels.
+		for (String key : labels.keySet()) {
+			if (key.equals(label)) {
+				return labels.get(key);
+			}
+		}
 		return labels.get(label);
 	}
 
@@ -47,11 +57,24 @@ public final class Labels {
 	@Override
 	public String toString() {
 		// TODO: Implement the method using the Stream API (see also class Registers).
-		return "";
+		return labels.entrySet().stream()
+				.map(entry -> entry.getKey() + " -> " + entry.getValue())
+				.reduce("", (a, b) -> a + ", " + b);
 	}
 
 	// TODO: Implement equals and hashCode (needed in class Machine).
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Labels labels1 = (Labels) o;
+		return Objects.equals(labels, labels1.labels);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(labels);
+	}
 	/**
 	 * Removes the labels
 	 */

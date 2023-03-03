@@ -1,11 +1,9 @@
 package sml;
 
-// TODO: write a JavaDoc for the class
-
 /**
  * Represents an abstract instruction.
- *
- * @author ...
+ * Utilises Instruction subclcasses, found under instruction folder
+ * @author Doyeon (Grace) Yoon
  */
 public abstract class Instruction {
 	protected final String label;
@@ -49,10 +47,16 @@ public abstract class Instruction {
 	}
 
 	// TODO: What does abstract in the declaration below mean?
-	//       (Write a short explanation.)
+	// ANSWER: "Abstract" indicates that the method should be utilised by a subclass extending Instruction.java,
+	// which in turn cannot also be abstract.
 	
 	@Override
 	public abstract String toString();
 
 	// TODO: Make sure that subclasses also implement equals and hashCode (needed in class Machine).
+	@Override
+	public abstract boolean equals(Object o);
+
+	@Override
+	public abstract int hashCode();
 }
