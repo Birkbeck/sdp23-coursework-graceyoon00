@@ -3,12 +3,9 @@ package sml;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-// TODO: write a JavaDoc for the class
-
 /**
- *
- * @author ...
+ * The label functions as a marker for lookup; instructions use them
+ * @author Doyeon Yoon
  */
 public final class Labels {
 	private final Map<String, Integer> labels = new HashMap<>();

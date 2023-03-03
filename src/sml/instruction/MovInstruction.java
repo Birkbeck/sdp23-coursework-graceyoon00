@@ -9,7 +9,8 @@ import java.util.Objects;
 // TODO: write a JavaDoc for the class
 
 /**
- * @author
+ * Translates input file to list of instructions so that we can interpret the text file into a program
+ * @author Doyeon Yoon
  */
 
 // mov r x: stores integer x in register r

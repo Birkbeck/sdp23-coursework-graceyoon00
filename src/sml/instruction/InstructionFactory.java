@@ -2,10 +2,14 @@ package sml.instruction;
 
 import sml.Instruction;
 import sml.RegisterName;
+import sml.Registers;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+/* For the Reflection API part of the coursework.
+ * @author Grace Yoon
+ */
 public class InstructionFactory {
 
     public InstructionFactory() {
@@ -16,8 +20,8 @@ public class InstructionFactory {
     }
 
     /* Standardise name in format "sml.instruction" + (opcode in all caps) + "Instruction" */
-    public String getName(String opcode) {
-        return "sml.instruction." + opcode.toUpperCase() + "Instruction";
+    public String getName(String opcode){
+        return "sml.instruction." + opcode.substring(0, 1).toUpperCase() + opcode.substring(1) + "Instruction";
     }
 
     /* Convert based on types (String.class, int.class, RegisterName.class) */
@@ -35,7 +39,7 @@ public class InstructionFactory {
     }
 
     /* Constructing instruction */
-    public Instruction constructInstruction(String opcode, Object[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public Instruction constructInstruction(String opcode, String label, Object[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class<?> instructionClass = Class.forName(getName(opcode));
         Constructor<?> constructor = instructionClass.getConstructor(String.class, RegisterName.class, RegisterName.class);
         Object[] convertedArgs = convertArgs(args, constructor.getParameterTypes());

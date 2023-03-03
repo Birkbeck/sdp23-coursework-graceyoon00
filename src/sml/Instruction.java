@@ -1,7 +1,6 @@
 package sml;
 
 /**
- * Represents an abstract instruction.
  * Utilises Instruction subclcasses, found under instruction folder
  * @author Doyeon (Grace) Yoon
  */
