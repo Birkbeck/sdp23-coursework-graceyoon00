@@ -18,7 +18,6 @@ public final class Labels {
 	 */
 	public void addLabel(String label, int address) {
 		Objects.requireNonNull(label);
-		// TODO: Add a check that there are no label duplicates.
 		for (String key : labels.keySet()) {
 			if (key.equals(label)) {
 				throw new IllegalArgumentException("Duplicate label");
@@ -35,8 +34,7 @@ public final class Labels {
 	 */
 	public int getAddress(String label) {
 		// TODO: Where can NullPointerException be thrown here?
-		//       (Write an explanation.)
-		//       Add code to deal with non-existent labels.
+		// Thrown when something is being referenced while it is not there (i.e. "pointing" to nothing)
 		for (String key : labels.keySet()) {
 			if (key.equals(label)) {
 				return labels.get(key);

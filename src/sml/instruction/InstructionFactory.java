@@ -19,7 +19,7 @@ public class InstructionFactory {
         return new InstructionFactory();
     }
 
-    /* Standardise name in format "sml.instruction" + (opcode in all caps) + "Instruction" */
+    /* Standardise name in format "sml.instruction" + (formatted opcode) + "Instruction" */
     public String getName(String opcode){
         return "sml.instruction." + opcode.substring(0, 1).toUpperCase() + opcode.substring(1) + "Instruction";
     }
